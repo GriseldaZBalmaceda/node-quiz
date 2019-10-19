@@ -10,6 +10,9 @@ import {HttpClient} from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import * as moment from "moment";
+import {MatDialog} from '@angular/material/dialog';
+import { SummaryResultsDialogComponent } from '../summary-results-dialog/summary-results-dialog.component';
+
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
@@ -22,6 +25,7 @@ questions:any;
 quizName:any;
 currentChoices:any;
 quizResults:any;
+quizSummary:any=[];
 employeeId:string;
 questionNumber=0;
 selectedAnswers=[]
@@ -31,7 +35,7 @@ score:any
 pointsPerQuestion:any
 qs:any=[];
 q:any=[];
-  constructor(private route:ActivatedRoute,private router:Router, private cookieService: CookieService,private http: HttpClient) {
+  constructor(private route:ActivatedRoute,private router:Router, private cookieService: CookieService,private http: HttpClient,public dialog: MatDialog) {
 
     //need to solve why employeeId is not able to show
     this.employeeId = this.cookieService.get('employeeId');
@@ -40,12 +44,10 @@ q:any=[];
     //getting quiz information
     this.http.get('/api/quiz/'+ this.quizId).subscribe(res=>{
       if(res){
-      console.log(res)
       this.quiz=res;
       this.questions=this.quiz.questions
       this.quizName=this.quiz.quizName
      this.pointsPerQuestion=100/this.questions.length
-      console.log(this.questions);
       }else{
 
     }
@@ -57,7 +59,6 @@ q:any=[];
     this.quizResults = form;
     this.quizResults['quizId'] = this.quizId;
     this.quizResults['employeeId']=this.employeeId
-    console.log(this.quizResults)
     for(const prop in this.quizResults){
     if(this.quizResults.hasOwnProperty(prop)){
       if(prop !== 'employeeId' && prop !== 'quizId'){
@@ -72,8 +73,15 @@ this.correctAnswers = this.answers.filter(function(correctAnswer){
 })
 this.score=this.pointsPerQuestion*this.correctAnswers.length;
 this.score=this.score.toString();
-console.log(this.score)
-console.log(this.score)
+for (let i = 0; i < this.selectedAnswers.length; i++){
+  this.quizSummary.push({
+    question: this.questions[i],
+    answer: this.answers[i],
+    answerSelected: this.selectedAnswers[i]
+  })
+}
+this.quizSummary.score=this.score;
+console.log(this.quizSummary)
   // sending post request
    this.http.post('/api/summary', {
     employeeId: this.employeeId,
@@ -84,9 +92,24 @@ console.log(this.score)
   }).subscribe(
     err => {
       console.log("Something went wrong!", err);
+      const dialogRef = this.dialog.open(SummaryResultsDialogComponent,{
+        width:'1000px',
+        height:'1000px',
+        data:this.quizSummary  });
+          dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed' , result);
+          });
     },
     () => {
         console.log("Post Works!");
+        const dialogRef = this.dialog.open(SummaryResultsDialogComponent,{
+          width:'1000px',
+          height:'1000px',
+          data:this.quizSummary  });
+            dialogRef.afterClosed().subscribe(result => {
+              this.router.navigateByUrl('/dashboard');
+              console.log('The dialog was closed' , result);
+            });
     });
 
 

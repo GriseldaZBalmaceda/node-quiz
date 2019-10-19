@@ -31,6 +31,8 @@ import { QuizComponent } from './quiz/quiz.component';
 import {MatButtonModule} from '@angular/material/button';
 import { CummulativeSummaryComponent } from './cummulative-summary/cummulative-summary.component';
 import {MatTableModule} from '@angular/material/table';
+import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
+import { SummaryResultsDialogComponent } from './summary-results-dialog/summary-results-dialog.component';
 //importing all modules that are needed
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import {MatTableModule} from '@angular/material/table';
     QuizCarouselDialogComponent,
     QuizComponent,
     CummulativeSummaryComponent,
+    AuthLayoutComponent,
+    SummaryResultsDialogComponent,
 
   ],
   imports: [
@@ -63,9 +67,9 @@ import {MatTableModule} from '@angular/material/table';
     RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false }),
   ],
   exports:[
-    QuizCarouselDialogComponent
+    QuizCarouselDialogComponent, SummaryResultsDialogComponent
   ],
-  entryComponents:[QuizCarouselDialogComponent],
+  entryComponents:[QuizCarouselDialogComponent, SummaryResultsDialogComponent],
   providers: [
     {provide:LocationStrategy,useClass: PathLocationStrategy},
     AuthGuard,

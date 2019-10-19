@@ -21,16 +21,11 @@ images:any;
 
   constructor( private imagesService:ImagesService ,public dialogRef: MatDialogRef<DashboardComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
-this.quiz=data.sentQuizId
-console.log(this.quiz.name)
-this.imagesService.getPresentations()
-.subscribe(res => {
-  this.presentations = res;
-  console.log(this.presentations)
-  console.log(this.presentations[0].name)
-  console.log(this.presentations[0].images)
-  this.images = this.presentations.filter(p => p.name === this.quiz.quizName)[0].images;
-  console.log(this.images);
+    this.quiz=data.sentQuizId
+    this.imagesService.getPresentations()
+    .subscribe(res => {
+    this.presentations = res;
+    this.images = this.presentations.filter(p => p.name === this.quiz.quizName)[0].images;
 })
 }
 

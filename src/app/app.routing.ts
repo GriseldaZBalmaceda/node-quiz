@@ -10,32 +10,36 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './shared/auth.guard';
 import { QuizComponent } from './quiz/quiz.component';
 import { CummulativeSummaryComponent } from './cummulative-summary/cummulative-summary.component';
+import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 //adding required routes and adding authguard to allow authenticated users to the dashbaord screen
 export const AppRoutes: Routes = [
   {
     path: '',
+    component: AuthLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: LoginComponent
+      }
+    ]
+  },
+  {
+    path: 'dashboard',
     component: BaseLayoutComponent,
     children: [
-     {path:'',
-    component:LoginComponent
-  },
-  {path:'dashboard',
-  component:DashboardComponent,
-  children:[
-
-  ],
-  canActivate:[AuthGuard]
-},
-{path:'quiz/:id',
-component:QuizComponent,
-canActivate:[AuthGuard]
-},
-{
-  path:'past-quizes',
-  component:CummulativeSummaryComponent,
-  canActivate:[AuthGuard]
-}
-
+      {path:'',
+      component:DashboardComponent,
+      canActivate:[AuthGuard]
+      },
+      {path:'quiz/:id',
+      component:QuizComponent,
+      canActivate:[AuthGuard]
+      },
+      {
+      path:'past-quizes',
+      component:CummulativeSummaryComponent,
+      canActivate:[AuthGuard]
+      }
     ]
   }
 ];

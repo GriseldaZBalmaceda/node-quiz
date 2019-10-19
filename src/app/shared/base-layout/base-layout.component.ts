@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute } from "@angular/router";
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-base-layout',
   templateUrl: './base-layout.component.html',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BaseLayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route:ActivatedRoute,private router:Router) { }
 
   ngOnInit() {
+  }
+  goToDash(){
+    this.router.navigate(['/dashboard'])
   }
 
 }

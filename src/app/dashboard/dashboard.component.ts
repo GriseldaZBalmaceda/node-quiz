@@ -43,7 +43,11 @@ openCarousel(data):void{
   })
 
 }
-  ngOnInit() {
+
+quizPage(id){
+  this.router.navigateByUrl('/dashboard/quiz/' + id);
+}
+ngOnInit() {
 
   }
 

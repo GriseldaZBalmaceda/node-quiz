@@ -1,0 +1,37 @@
+<h1 style="text-align:center">Your Quiz Results</h1>
+<h2 sytle="margin:10px;">Score:
+  <span *ngIf="summary.score === '100'">
+    <span style="color: gold;">{{summary.score}}%</span>
+  </span>
+  <span *ngIf="summary.score < '100' && summary.score >= '80'">
+    <span style="color: green;">{{summary.score}}%</span>
+  </span>
+  <span *ngIf="summary.score < '80' && summary.score >= '61'">
+    <span style="color: yellowgreen;">{{summary.score}}%</span>
+  </span>
+  <span *ngIf="summary.score < '61'">
+    <span style="color: red;">{{summary.score}}%</span>
+  </span>
+</h2>
+<br>
+<div style="width:80%; margin:0 auto;">
+  <div *ngFor="let summary of summary;">
+
+    <div *ngIf="summary.answer === true">
+      <p style="font-weight: bold;">Question: {{summary.question.question}}</p>
+      <p>Correct Answer: {{summary.question.choices[answer]}}</p>
+      <p style="color:green;">Selected Answer: {{summary.answerGiven}}</p>
+    </div>
+
+    <div *ngIf="summary.answer ===false">
+      <p style="font-weight: bold;">Question: {{summary.question.question}}</p>
+      <p>Correct Answer: {{summary.answer}}</p>
+      <p style="color:red;">Selected Answer: {{summary.answerGiven}}</p>
+    </div>
+    <hr>
+    <br>
+  </div>
+
+</div>
+
+<button mat-button (click)="goToDash()">Finished</button>
