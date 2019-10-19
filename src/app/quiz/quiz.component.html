@@ -1,0 +1,50 @@
+
+  <mat-card>
+    <mat-card-title style="text-align: center; font-weight: lighter;" class="mat-headline">
+      {{ quiz.name }}
+    </mat-card-title>
+
+    <br>
+    <!-- root mat card content -->
+    <mat-card-content>
+        <!-- Quiz form -->
+        <form #quizForm="ngForm" (ngSubmit)="onSubmit(quizForm.value);">
+          <div *ngFor="let question of questions">
+            <mat-card class="mat-elevation-z8">
+              <mat-card-content>
+
+                <div>
+                  <!-- questions -->
+                  <mat-list>
+                    <div>
+                      <p>Question: </p>
+                      <p>{{question.question}}</p>
+                    </div>
+                  </mat-list>
+                  <br>
+                  <div fxLayout="row" >
+                    <label>Answers:</label>
+                    <div>
+                      <div *ngFor="let answers of question.choices" >
+                        <input [(ngModel)]="qs[question.questionId-1]" [checked]="qs[question.questionId-1]" value="{{answers.answerId}};{{answers.isCorrect}}" name="q{{question.questionId}}" type="radio" />
+                        {{answers.answerText}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <br>
+          <mat-card-actions>
+            <!--having issues submitting and closing page-->
+            <button type="submit" fxFlex mat-raised-button color="warn">Submit</button>
+          </mat-card-actions>
+        </form>
+    </mat-card-content>
+  </mat-card>
+
+
+    <button mat-button color="primary" (click)="goBackToDash()">Return to Presentation</button>
+
+

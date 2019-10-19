@@ -1,0 +1,11 @@
+<div class="mainContent">
+  <h1 class="loginHeader" color="primary">NodeQuiz</h1>
+  <form [formGroup]="employeeLogin"(ngSubmit)='loginEmployee(employeeLogin)'>
+  <p>Please Enter Employee Id</p>
+    <label>
+    <input type="text" formControlName="employeeId">
+  </label>
+  <p *ngIf="errorMessage">{{errorMessage}}</p>
+</form>
+</div>
+

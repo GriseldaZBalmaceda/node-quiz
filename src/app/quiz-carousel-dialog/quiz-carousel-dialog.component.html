@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>{{quiz.quizName}}</h1>
+  <p-carousel [value]="images" numVisible="1">
+      <ng-template let-item pTemplate="item">
+            <div>
+              <img src="../../assets/Presentations/{{quiz.quizName}}/{{item.name}}.jpg"  width="1000">
+            </div>
+      </ng-template>
+  </p-carousel>
+<div mat-dialog-actions>
+  <button mat-button>No Thanks</button>
+  <button mat-button cdkFocusInitial>Ok</button>
+</div>

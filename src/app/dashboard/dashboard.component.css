@@ -1,0 +1,24 @@
+mat-sidenav {
+  width: 300px;
+  background-color:#043271;
+  color: white;
+
+}
+mat-nav-list-item{
+  text-align: center;
+  font-size: 2.2em;
+  font-family: 'Oswald', sans-serif;
+}
+mat-nav-list a{
+
+color:white
+}
+mat-sidenav li{
+  list-style-type: none;
+
+padding-inline-start: none!important;
+}
+mat-toolbar{
+  height: 200px;
+  background-color: #106D9D;
+}
