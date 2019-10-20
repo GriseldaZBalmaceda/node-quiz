@@ -316,7 +316,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table mat-table [dataSource]=\"summary\" class=\"mat-elevation-z8\">\n\n    <!--- Note that these columns can be defined in any order.\n          The actual rendered columns are set as a property on the row definition\" -->\n\n    <!-- Position Column -->\n    <ng-container matColumnDef=\"position\">\n      <th mat-header-cell *matHeaderCellDef> EmployeeId</th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.employeeId}} </td>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"name\">\n      <th mat-header-cell *matHeaderCellDef> Quiz Id</th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.quizId}} </td>\n    </ng-container>\n\n    <!-- Weight Column -->\n    <ng-container matColumnDef=\"weight\">\n      <th mat-header-cell *matHeaderCellDef>Quiz Name </th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.quizName}} </td>\n    </ng-container>\n\n    <!-- Symbol Column -->\n    <ng-container matColumnDef=\"symbol\">\n      <th mat-header-cell *matHeaderCellDef> Score </th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.score}} </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n  </table>\n"
+module.exports = "<table mat-table [dataSource]=\"summary\" class=\"mat-elevation-z8\">\n\n\n    <ng-container matColumnDef=\"employeeId\">\n      <th mat-header-cell *matHeaderCellDef> EmployeeId</th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.employeeId}} </td>\n    </ng-container>\n\n\n    <ng-container matColumnDef=\"quizId\">\n      <th mat-header-cell *matHeaderCellDef> Quiz Id</th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.quizId}} </td>\n    </ng-container>\n\n\n    <ng-container matColumnDef=\"name\">\n      <th mat-header-cell *matHeaderCellDef>Quiz Name </th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.quizName}} </td>\n    </ng-container>\n\n\n    <ng-container matColumnDef=\"score\">\n      <th mat-header-cell *matHeaderCellDef> Score </th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.score}} </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n  </table>\n"
 
 /***/ }),
 
@@ -349,7 +349,7 @@ module.exports = "<div class=\"mainContent\">\n  <h1 class=\"loginHeader\" color
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 mat-dialog-title>{{quiz.quizName}}</h1>\r\n  <p-carousel [value]=\"images\" numVisible=\"1\">\r\n      <ng-template let-item pTemplate=\"item\">\r\n            <div>\r\n              <img src=\"../../assets/Presentations/{{quiz.quizName}}/{{item.name}}.jpg\"  width=\"1000\">\r\n            </div>\r\n      </ng-template>\r\n  </p-carousel>\r\n<div mat-dialog-actions>\r\n  <button mat-button  (click)=\"quizPage()\">Take Quiz</button>\r\n</div>\r\n"
+module.exports = "<h1 mat-dialog-title>{{quiz.quizName}}</h1>\r\n  <p-carousel [value]=\"images\" numVisible=\"1\">\r\n      <ng-template let-item pTemplate=\"item\">\r\n            <div>\r\n              <img src=\"./assets/Presentations/{{quiz.quizName}}/{{item.name}}.jpg\"  width=\"1000\">\r\n            </div>\r\n      </ng-template>\r\n  </p-carousel>\r\n<div mat-dialog-actions>\r\n  <button mat-button  (click)=\"quizPage()\">Take Quiz</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -665,7 +665,7 @@ var CummulativeSummaryComponent = /** @class */ (function () {
         var _this = this;
         this.router = router;
         this.http = http;
-        this.displayedColumns = ['position', 'name', 'weight', 'symbol'];
+        this.displayedColumns = ['employeeId', 'quizId', 'name', 'score'];
         this.http.get('/api/summary').subscribe(function (res) {
             if (res) {
                 _this.summary = res;
@@ -747,7 +747,7 @@ var DashboardComponent = /** @class */ (function () {
             if (res) {
                 _this.quiz = res;
                 console.log(_this.quiz);
-                //creating a dialog that will open the slideshow in a modal
+                //creating a dialog that will open
                 var dialogRef = _this.dialog.open(_quiz_carousel_dialog_quiz_carousel_dialog_component__WEBPACK_IMPORTED_MODULE_3__["QuizCarouselDialogComponent"], {
                     width: '1000px',
                     height: '1000px',
@@ -950,6 +950,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var QuizCarouselDialogComponent = /** @class */ (function () {
+    /*creating a dialog(modal) that will display the presentation */
     function QuizCarouselDialogComponent(router, imagesService, dialogRef, data) {
         var _this = this;
         this.router = router;
@@ -966,6 +967,7 @@ var QuizCarouselDialogComponent = /** @class */ (function () {
     }
     QuizCarouselDialogComponent.prototype.ngOnInit = function () {
     };
+    //user is navigated to the quiz page and the modal is closed
     QuizCarouselDialogComponent.prototype.quizPage = function () {
         this.router.navigateByUrl('/dashboard/quiz/' + this.quiz.quizId);
         this.dialogRef.close();
@@ -1087,6 +1089,7 @@ var QuizComponent = /** @class */ (function () {
         });
         this.score = this.pointsPerQuestion * this.correctAnswers.length;
         this.score = this.score.toString();
+        //generating data that will be send to the summary dialog
         for (var i = 0; i < this.selectedAnswers.length; i++) {
             this.quizSummary.push({
                 question: this.questions[i],
@@ -1103,7 +1106,9 @@ var QuizComponent = /** @class */ (function () {
             quizName: this.quizName,
             date: moment__WEBPACK_IMPORTED_MODULE_5__().format('MM/DD/YYYY'),
             score: this.score,
-        }).subscribe(function (err) {
+        }).subscribe(
+        //for some reason i am getting an error but the post is generating the correct post request
+        function (err) {
             console.log("Something went wrong!", err);
             var dialogRef = _this.dialog.open(_summary_results_dialog_summary_results_dialog_component__WEBPACK_IMPORTED_MODULE_7__["SummaryResultsDialogComponent"], {
                 width: '1000px',
@@ -1273,6 +1278,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 
+/**
+ * Author: Griselda
+ * Date: 9/24/2019
+ * Description: base-layout-component
+ */
 
 
 
@@ -1347,11 +1357,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
 
+/**
+ * Author: Griselda
+ * Date: 9/24/2019
+ * Description: summary results dialog
+ */
 
 
 
 
 var SummaryResultsDialogComponent = /** @class */ (function () {
+    /*recieving data that was sent from quiz and displaying the summary modal*/
     function SummaryResultsDialogComponent(route, router, dialogRef, data) {
         this.route = route;
         this.router = router;
