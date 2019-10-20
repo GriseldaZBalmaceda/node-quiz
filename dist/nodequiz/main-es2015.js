@@ -316,7 +316,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table mat-table [dataSource]=\"summary\" class=\"mat-elevation-z8\">\n\n\n    <ng-container matColumnDef=\"employeeId\">\n      <th mat-header-cell *matHeaderCellDef> EmployeeId</th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.employeeId}} </td>\n    </ng-container>\n\n\n    <ng-container matColumnDef=\"quizId\">\n      <th mat-header-cell *matHeaderCellDef> Quiz Id</th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.quizId}} </td>\n    </ng-container>\n\n\n    <ng-container matColumnDef=\"name\">\n      <th mat-header-cell *matHeaderCellDef>Quiz Name </th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.quizName}} </td>\n    </ng-container>\n\n\n    <ng-container matColumnDef=\"score\">\n      <th mat-header-cell *matHeaderCellDef> Score </th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.score}} </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n  </table>\n"
+module.exports = "<table mat-table [dataSource]=\"summary\" class=\"mat-elevation-z8\" style=\"width: 100%\">\n\n\n    <ng-container matColumnDef=\"employeeId\">\n      <th mat-header-cell *matHeaderCellDef> EmployeeId</th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.employeeId}} </td>\n    </ng-container>\n\n\n    <ng-container matColumnDef=\"quizId\">\n      <th mat-header-cell *matHeaderCellDef> Quiz Id</th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.quizId}} </td>\n    </ng-container>\n\n\n    <ng-container matColumnDef=\"name\">\n      <th mat-header-cell *matHeaderCellDef>Quiz Name </th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.quizName}} </td>\n    </ng-container>\n\n\n    <ng-container matColumnDef=\"score\">\n      <th mat-header-cell *matHeaderCellDef> Score </th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.score}} </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n  </table>\n"
 
 /***/ }),
 
@@ -349,7 +349,7 @@ module.exports = "<div class=\"mainContent\">\n  <h1 class=\"loginHeader\" color
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 mat-dialog-title>{{quiz.quizName}}</h1>\r\n  <p-carousel [value]=\"images\" numVisible=\"1\">\r\n      <ng-template let-item pTemplate=\"item\">\r\n            <div>\r\n              <img src=\"./assets/Presentations/{{quiz.quizName}}/{{item.name}}.jpg\"  width=\"1000\">\r\n            </div>\r\n      </ng-template>\r\n  </p-carousel>\r\n<div mat-dialog-actions>\r\n  <button mat-button  (click)=\"quizPage()\">Take Quiz</button>\r\n</div>\r\n"
+module.exports = "<h1 mat-dialog-title>{{quiz.quizName}}</h1>\r\n  <p-carousel [value]=\"images\" numVisible=\"1\">\r\n      <ng-template let-item pTemplate=\"item\">\r\n            <div>\r\n              <img src=\"./assets/Presentations/{{quiz.quizName}}/{{item.name}}.JPG\"  width=\"1000\">\r\n            </div>\r\n      </ng-template>\r\n  </p-carousel>\r\n<div mat-dialog-actions>\r\n  <button mat-button  (click)=\"quizPage()\">Take Quiz</button>\r\n</div>\r\n"
 
 /***/ }),
 
