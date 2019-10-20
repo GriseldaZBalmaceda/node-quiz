@@ -316,7 +316,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>cummulative-summary works!</p>\n<table mat-table [dataSource]=\"summary\" class=\"mat-elevation-z8\">\n\n    <!--- Note that these columns can be defined in any order.\n          The actual rendered columns are set as a property on the row definition\" -->\n\n    <!-- Position Column -->\n    <ng-container matColumnDef=\"position\">\n      <th mat-header-cell *matHeaderCellDef> EmployeeId</th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.employeeId}} </td>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"name\">\n      <th mat-header-cell *matHeaderCellDef> Quiz Id</th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.quizId}} </td>\n    </ng-container>\n\n    <!-- Weight Column -->\n    <ng-container matColumnDef=\"weight\">\n      <th mat-header-cell *matHeaderCellDef>Quiz Name </th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.quizName}} </td>\n    </ng-container>\n\n    <!-- Symbol Column -->\n    <ng-container matColumnDef=\"symbol\">\n      <th mat-header-cell *matHeaderCellDef> Score </th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.score}} </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n  </table>\n"
+module.exports = "<table mat-table [dataSource]=\"summary\" class=\"mat-elevation-z8\">\n\n    <!--- Note that these columns can be defined in any order.\n          The actual rendered columns are set as a property on the row definition\" -->\n\n    <!-- Position Column -->\n    <ng-container matColumnDef=\"position\">\n      <th mat-header-cell *matHeaderCellDef> EmployeeId</th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.employeeId}} </td>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"name\">\n      <th mat-header-cell *matHeaderCellDef> Quiz Id</th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.quizId}} </td>\n    </ng-container>\n\n    <!-- Weight Column -->\n    <ng-container matColumnDef=\"weight\">\n      <th mat-header-cell *matHeaderCellDef>Quiz Name </th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.quizName}} </td>\n    </ng-container>\n\n    <!-- Symbol Column -->\n    <ng-container matColumnDef=\"symbol\">\n      <th mat-header-cell *matHeaderCellDef> Score </th>\n      <td mat-cell *matCellDef=\"let summary\"> {{summary.score}} </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n  </table>\n"
 
 /***/ }),
 
@@ -327,7 +327,7 @@ module.exports = "<p>cummulative-summary works!</p>\n<table mat-table [dataSourc
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n  <h1> Welcome back!</h1>\n<div fxLayou=\"row\">\n  <div fxFlex>\n      <mat-card style=\"text-align:center\">\n        <mat-card-content >\n        <img mat-card-image src=\"../../assets/Presentations/IntroToJavaScript/Slide1.JPG\" (click)=\"openCarousel(256)\"/>\n        </mat-card-content>\n        <mat-card-footer>\n          Learn the basics of JavaScript with Intro To JavaScript quiz.\n        <button color=\"primary\" mat-button (click)=\"quizPage(256)\">Go to Quiz</button>\n        </mat-card-footer>\n        </mat-card>\n  </div>\n  <div fxFlex>\n      <mat-card style=\"text-align:center\">\n          <mat-card-content >\n          <img mat-card-image src=\"../../assets/Presentations/IntroToCSS/Slide1.JPG\" (click)=\"openCarousel(258)\"/>\n          </mat-card-content>\n          <mat-card-footer>\n            Learn the basics of CSS with this Intro To CSS quiz.\n          <button color=\"primary\" mat-button (click)=\"quizPage(258)\">Go to Quiz</button>\n          </mat-card-footer>\n          </mat-card>\n  </div>\n  <div fxFlex>\n      <mat-card style=\"text-align:center\">\n          <mat-card-content >\n          <img mat-card-image src=\"../../assets/Presentations/IntroToNode/Slide1.JPG\" (click)=\"openCarousel(257)\"/>\n          </mat-card-content>\n          <mat-card-footer>\n            Learn the basics of Node with Intro To Node quiz.\n          <button color=\"primary\" mat-button (click)=\"quizPage(257)\">Go to Quiz</button>\n          </mat-card-footer>\n          </mat-card>\n  </div>\n</div>\n\n"
+module.exports = "\n  <h1> Welcome back!</h1>\n<div fxLayou=\"row\">\n  <div fxFlex>\n      <mat-card style=\"text-align:center;margin-left: 10px;\">\n        <mat-card-content >\n        <img mat-card-image src=\"../../assets/Presentations/IntroToJavaScript/Slide1.JPG\" (click)=\"openCarousel(256)\"/>\n        </mat-card-content>\n        <mat-card-footer>\n          Learn the basics of JavaScript with Intro To JavaScript quiz.\n        <button color=\"primary\" mat-button (click)=\"quizPage(256)\">Go to Quiz</button>\n        </mat-card-footer>\n        </mat-card>\n  </div>\n  <div fxFlex>\n      <mat-card style=\"text-align:center;margin-left: 10px;\">\n          <mat-card-content >\n          <img mat-card-image src=\"../../assets/Presentations/IntroToCSS/Slide1.JPG\" (click)=\"openCarousel(258)\"/>\n          </mat-card-content>\n          <mat-card-footer>\n            Learn the basics of CSS with this Intro To CSS quiz.\n          <button color=\"primary\" mat-button (click)=\"quizPage(258)\">Go to Quiz</button>\n          </mat-card-footer>\n          </mat-card>\n  </div>\n  <div fxFlex>\n      <mat-card style=\"text-align:center;margin-left: 10px;\">\n          <mat-card-content >\n          <img mat-card-image src=\"../../assets/Presentations/IntroToNode/Slide1.JPG\" (click)=\"openCarousel(257)\"/>\n          </mat-card-content>\n          <mat-card-footer>\n            Learn the basics of Node with Intro To Node quiz.\n          <button color=\"primary\" mat-button (click)=\"quizPage(257)\">Go to Quiz</button>\n          </mat-card-footer>\n          </mat-card>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -349,7 +349,7 @@ module.exports = "<div class=\"mainContent\">\n  <h1 class=\"loginHeader\" color
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 mat-dialog-title>{{quiz.quizName}}</h1>\r\n  <p-carousel [value]=\"images\" numVisible=\"1\">\r\n      <ng-template let-item pTemplate=\"item\">\r\n            <div>\r\n              <img src=\"../../assets/Presentations/{{quiz.quizName}}/{{item.name}}.jpg\"  width=\"1000\">\r\n            </div>\r\n      </ng-template>\r\n  </p-carousel>\r\n<div mat-dialog-actions>\r\n  <button mat-button>No Thanks</button>\r\n  <button mat-button cdkFocusInitial>Ok</button>\r\n</div>\r\n"
+module.exports = "<h1 mat-dialog-title>{{quiz.quizName}}</h1>\r\n  <p-carousel [value]=\"images\" numVisible=\"1\">\r\n      <ng-template let-item pTemplate=\"item\">\r\n            <div>\r\n              <img src=\"../../assets/Presentations/{{quiz.quizName}}/{{item.name}}.jpg\"  width=\"1000\">\r\n            </div>\r\n      </ng-template>\r\n  </p-carousel>\r\n<div mat-dialog-actions>\r\n  <button mat-button  (click)=\"quizPage()\">Take Quiz</button>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -739,11 +739,12 @@ let DashboardComponent = class DashboardComponent {
         this.http.get('/api/quiz/' + data).subscribe(res => {
             if (res) {
                 this.quiz = res;
+                console.log(this.quiz);
                 //creating a dialog that will open the slideshow in a modal
                 const dialogRef = this.dialog.open(_quiz_carousel_dialog_quiz_carousel_dialog_component__WEBPACK_IMPORTED_MODULE_3__["QuizCarouselDialogComponent"], {
                     width: '1000px',
                     height: '1000px',
-                    data: { sentQuizId: { quizName: this.quiz.quizName } }
+                    data: { sentQuizId: { quizName: this.quiz.quizName, quizId: this.quiz.quizId } }
                 });
                 dialogRef.afterClosed().subscribe(result => {
                     console.log('The dialog was closed', result);
@@ -885,7 +886,7 @@ let ImagesService = class ImagesService {
         this.http = http;
     }
     getPresentations() {
-        return this.http.get('../../assets/presentation.json');
+        return this.http.get('./assets/presentation.json');
     }
 };
 ImagesService.ctorParameters = () => [
@@ -926,6 +927,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm2015/dialog.js");
 /* harmony import */ var _images_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./images.service */ "./src/app/quiz-carousel-dialog/images.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /**
  * Author: Griselda
  * Date: 9/24/2019
@@ -935,12 +937,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 let QuizCarouselDialogComponent = class QuizCarouselDialogComponent {
-    constructor(imagesService, dialogRef, data) {
+    constructor(router, imagesService, dialogRef, data) {
+        this.router = router;
         this.imagesService = imagesService;
         this.dialogRef = dialogRef;
         this.data = data;
         this.quiz = data.sentQuizId;
+        console.log(this.quiz);
         this.imagesService.getPresentations()
             .subscribe(res => {
             this.presentations = res;
@@ -949,8 +954,13 @@ let QuizCarouselDialogComponent = class QuizCarouselDialogComponent {
     }
     ngOnInit() {
     }
+    quizPage() {
+        this.router.navigateByUrl('/dashboard/quiz/' + this.quiz.quizId);
+        this.dialogRef.close();
+    }
 };
 QuizCarouselDialogComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
     { type: _images_service__WEBPACK_IMPORTED_MODULE_3__["ImagesService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"] },
     { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"],] }] }
@@ -961,7 +971,7 @@ QuizCarouselDialogComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: __webpack_require__(/*! raw-loader!./quiz-carousel-dialog.component.html */ "./node_modules/raw-loader/index.js!./src/app/quiz-carousel-dialog/quiz-carousel-dialog.component.html"),
         styles: [__webpack_require__(/*! ./quiz-carousel-dialog.component.css */ "./src/app/quiz-carousel-dialog/quiz-carousel-dialog.component.css")]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"]))
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](3, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"]))
 ], QuizCarouselDialogComponent);
 
 
@@ -1226,7 +1236,7 @@ AuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "mat-sidenav {\r\n  background-color:#043271;\r\n  color: white;\r\n  background-color: #043271;\r\n\r\n}\r\nmat-nav-list-item{\r\n  text-align: center;\r\n  font-size: 2.2em;\r\n  font-family: 'Oswald', sans-serif;\r\n}\r\nmat-nav-list a{\r\n\r\ncolor:white\r\n}\r\nmat-sidenav li{\r\nlist-style-type: none;\r\n-webkit-padding-start: none!important;\r\n        padding-inline-start: none!important;\r\n}\r\n.mat-drawer-container {\r\n  position: fixed;\r\n  width: 300px;\r\n  background-color: #043271;\r\n}\r\n\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2Jhc2UtbGF5b3V0L2Jhc2UtbGF5b3V0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSx3QkFBd0I7RUFDeEIsWUFBWTtFQUNaLHlCQUF5Qjs7QUFFM0I7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsaUNBQWlDO0FBQ25DO0FBQ0E7O0FBRUE7QUFDQTtBQUNBO0FBQ0EscUJBQXFCO0FBQ3JCLHFDQUFvQztRQUFwQyxvQ0FBb0M7QUFDcEM7QUFHQTtFQUNFLGVBQWU7RUFDZixZQUFZO0VBQ1oseUJBQXlCO0FBQzNCIiwiZmlsZSI6InNyYy9hcHAvc2hhcmVkL2Jhc2UtbGF5b3V0L2Jhc2UtbGF5b3V0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJtYXQtc2lkZW5hdiB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjojMDQzMjcxO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDQzMjcxO1xyXG5cclxufVxyXG5tYXQtbmF2LWxpc3QtaXRlbXtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgZm9udC1zaXplOiAyLjJlbTtcclxuICBmb250LWZhbWlseTogJ09zd2FsZCcsIHNhbnMtc2VyaWY7XHJcbn1cclxubWF0LW5hdi1saXN0IGF7XHJcblxyXG5jb2xvcjp3aGl0ZVxyXG59XHJcbm1hdC1zaWRlbmF2IGxpe1xyXG5saXN0LXN0eWxlLXR5cGU6IG5vbmU7XHJcbnBhZGRpbmctaW5saW5lLXN0YXJ0OiBub25lIWltcG9ydGFudDtcclxufVxyXG5cclxuXHJcbi5tYXQtZHJhd2VyLWNvbnRhaW5lciB7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIHdpZHRoOiAzMDBweDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDQzMjcxO1xyXG59XHJcblxyXG5cclxuIl19 */"
+module.exports = "mat-sidenav {\r\n  background-color:#043271;\r\n  color: white;\r\n  width: 300px;\r\n\r\n}\r\nmat-nav-list-item{\r\n  text-align: center;\r\n  font-size: 2.2em;\r\n  font-family: 'Oswald', sans-serif;\r\n}\r\nmat-nav-list a{\r\n\r\ncolor:white\r\n}\r\nmat-sidenav li{\r\nlist-style-type: none;\r\n-webkit-padding-start: none!important;\r\n        padding-inline-start: none!important;\r\n}\r\n.mat-drawer-container {\r\n  position: fixed;\r\n  width: 300px;\r\n  background-color: #043271;\r\n}\r\n\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2Jhc2UtbGF5b3V0L2Jhc2UtbGF5b3V0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSx3QkFBd0I7RUFDeEIsWUFBWTtFQUNaLFlBQVk7O0FBRWQ7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsaUNBQWlDO0FBQ25DO0FBQ0E7O0FBRUE7QUFDQTtBQUNBO0FBQ0EscUJBQXFCO0FBQ3JCLHFDQUFvQztRQUFwQyxvQ0FBb0M7QUFDcEM7QUFHQTtFQUNFLGVBQWU7RUFDZixZQUFZO0VBQ1oseUJBQXlCO0FBQzNCIiwiZmlsZSI6InNyYy9hcHAvc2hhcmVkL2Jhc2UtbGF5b3V0L2Jhc2UtbGF5b3V0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJtYXQtc2lkZW5hdiB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjojMDQzMjcxO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICB3aWR0aDogMzAwcHg7XHJcblxyXG59XHJcbm1hdC1uYXYtbGlzdC1pdGVte1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBmb250LXNpemU6IDIuMmVtO1xyXG4gIGZvbnQtZmFtaWx5OiAnT3N3YWxkJywgc2Fucy1zZXJpZjtcclxufVxyXG5tYXQtbmF2LWxpc3QgYXtcclxuXHJcbmNvbG9yOndoaXRlXHJcbn1cclxubWF0LXNpZGVuYXYgbGl7XHJcbmxpc3Qtc3R5bGUtdHlwZTogbm9uZTtcclxucGFkZGluZy1pbmxpbmUtc3RhcnQ6IG5vbmUhaW1wb3J0YW50O1xyXG59XHJcblxyXG5cclxuLm1hdC1kcmF3ZXItY29udGFpbmVyIHtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgd2lkdGg6IDMwMHB4O1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMwNDMyNzE7XHJcbn1cclxuXHJcblxyXG4iXX0= */"
 
 /***/ }),
 

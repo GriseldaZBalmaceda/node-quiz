@@ -7,7 +7,9 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog'
 import {DashboardComponent} from '../dashboard/dashboard.component'
-import {ImagesService} from './images.service'
+import {ImagesService} from './images.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-quiz-carousel-dialog',
   templateUrl: './quiz-carousel-dialog.component.html',
@@ -19,9 +21,10 @@ presentations:any;
 presentationName:string;
 images:any;
 
-  constructor( private imagesService:ImagesService ,public dialogRef: MatDialogRef<DashboardComponent>,
+  constructor( private router:Router,private imagesService:ImagesService ,public dialogRef: MatDialogRef<DashboardComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
     this.quiz=data.sentQuizId
+    console.log(this.quiz);
     this.imagesService.getPresentations()
     .subscribe(res => {
     this.presentations = res;
@@ -31,5 +34,8 @@ images:any;
 
   ngOnInit() {
   }
-
+quizPage(){
+  this.router.navigateByUrl('/dashboard/quiz/' + this.quiz.quizId);
+  this.dialogRef.close();
+}
 }

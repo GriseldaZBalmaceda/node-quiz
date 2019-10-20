@@ -29,11 +29,12 @@ openCarousel(data):void{
   this.http.get('/api/quiz/'+ data).subscribe(res=>{
     if(res){
       this.quiz=res;
+      console.log(this.quiz)
       //creating a dialog that will open the slideshow in a modal
       const dialogRef = this.dialog.open(QuizCarouselDialogComponent,{
         width:'1000px',
         height:'1000px',
-        data:{sentQuizId:{quizName:this.quiz.quizName}}  });
+        data:{sentQuizId:{quizName:this.quiz.quizName,quizId:this.quiz.quizId}}  });
           dialogRef.afterClosed().subscribe(result => {
             console.log('The dialog was closed' , result);
         this.quizId=result.data
