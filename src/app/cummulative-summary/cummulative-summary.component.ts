@@ -15,12 +15,12 @@ import {HttpClient} from '@angular/common/http';
 })
 export class CummulativeSummaryComponent implements OnInit {
 
-  //example from angular material, wanted to see how the table will be implemented
-summary:any;
-employeeId:any;
-employee:any;
-employeeName:any;
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  //adding data to table
+  summary:any;
+  employeeId:any;
+  employee:any;
+  employeeName:any;
+  displayedColumns: string[] = ['employeeId', 'quizId', 'name', 'score'];
   constructor(private router:Router,private http:HttpClient) {
     this.http.get('/api/summary').subscribe(res=>{
       if(res){

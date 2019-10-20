@@ -1,3 +1,8 @@
+/**
+ * Author: Griselda
+ * Date: 9/24/2019
+ * Description: summary results dialog
+ */
 import { Component, OnInit,Inject } from '@angular/core';
 import {QuizComponent} from '../quiz/quiz.component'
 import { ActivatedRoute } from "@angular/router";
@@ -14,9 +19,10 @@ export class SummaryResultsDialogComponent implements OnInit {
 summary:any;
 questions:any;
 sore:any;
+/*recieving data that was sent from quiz and displaying the summary modal*/
   constructor(private route:ActivatedRoute,private router:Router, public dialogRef: MatDialogRef<QuizComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
-this.summary=data;
+    this.summary=data;
 
 
      }

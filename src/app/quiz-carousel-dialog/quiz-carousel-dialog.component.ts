@@ -21,6 +21,7 @@ presentations:any;
 presentationName:string;
 images:any;
 
+/*creating a dialog(modal) that will display the presentation */
   constructor( private router:Router,private imagesService:ImagesService ,public dialogRef: MatDialogRef<DashboardComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
     this.quiz=data.sentQuizId
@@ -34,6 +35,8 @@ images:any;
 
   ngOnInit() {
   }
+
+  //user is navigated to the quiz page and the modal is closed
 quizPage(){
   this.router.navigateByUrl('/dashboard/quiz/' + this.quiz.quizId);
   this.dialogRef.close();

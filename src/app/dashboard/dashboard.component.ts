@@ -20,8 +20,8 @@ import { Router } from '@angular/router';
 
 export class DashboardComponent implements OnInit {
   errorMessage:String;
-quizId:any;
-quiz:any;
+  quizId:any;
+  quiz:any;
   constructor(public dialog: MatDialog,private http:HttpClient,private router:Router) {
   }
 
@@ -30,7 +30,7 @@ openCarousel(data):void{
     if(res){
       this.quiz=res;
       console.log(this.quiz)
-      //creating a dialog that will open the slideshow in a modal
+      //creating a dialog that will open
       const dialogRef = this.dialog.open(QuizCarouselDialogComponent,{
         width:'1000px',
         height:'1000px',

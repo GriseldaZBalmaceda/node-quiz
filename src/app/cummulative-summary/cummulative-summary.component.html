@@ -1,28 +1,25 @@
 <table mat-table [dataSource]="summary" class="mat-elevation-z8">
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
 
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
+    <ng-container matColumnDef="employeeId">
       <th mat-header-cell *matHeaderCellDef> EmployeeId</th>
       <td mat-cell *matCellDef="let summary"> {{summary.employeeId}} </td>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
+
+    <ng-container matColumnDef="quizId">
       <th mat-header-cell *matHeaderCellDef> Quiz Id</th>
       <td mat-cell *matCellDef="let summary"> {{summary.quizId}} </td>
     </ng-container>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
+
+    <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Quiz Name </th>
       <td mat-cell *matCellDef="let summary"> {{summary.quizName}} </td>
     </ng-container>
 
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
+
+    <ng-container matColumnDef="score">
       <th mat-header-cell *matHeaderCellDef> Score </th>
       <td mat-cell *matCellDef="let summary"> {{summary.score}} </td>
     </ng-container>

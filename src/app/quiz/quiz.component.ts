@@ -75,6 +75,7 @@ this.correctAnswers = this.answers.filter(function(correctAnswer){
 this.score=this.pointsPerQuestion*this.correctAnswers.length;
 this.score=this.score.toString();
 
+//generating data that will be send to the summary dialog
 for (let i = 0; i < this.selectedAnswers.length; i++){
   this.quizSummary.push({
     question: this.questions[i],
@@ -92,6 +93,7 @@ console.log(this.quizSummary)
     date:moment().format('MM/DD/YYYY'),
     score:this.score,
   }).subscribe(
+    //for some reason i am getting an error but the post is generating the correct post request
     err => {
       console.log("Something went wrong!", err);
       const dialogRef = this.dialog.open(SummaryResultsDialogComponent,{
@@ -113,8 +115,6 @@ console.log(this.quizSummary)
               console.log('The dialog was closed' , result);
             });
     });
-
-
   }
 goBackToDash(){
   this.router.navigate(['/dashboard'])
