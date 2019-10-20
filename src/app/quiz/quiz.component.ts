@@ -23,12 +23,12 @@ quizId:any;
 quiz:any;
 questions:any;
 quizName:any;
-currentChoices:any;
 quizResults:any;
 quizSummary:any=[];
 employeeId:string;
 questionNumber=0;
 selectedAnswers=[]
+selectedTextAnswers=[]
 answers=[]
 correctAnswers=[]
 score:any
@@ -45,6 +45,7 @@ q:any=[];
     this.http.get('/api/quiz/'+ this.quizId).subscribe(res=>{
       if(res){
       this.quiz=res;
+      console.log(res)
       this.questions=this.quiz.questions
       this.quizName=this.quiz.quizName
      this.pointsPerQuestion=100/this.questions.length
@@ -73,6 +74,7 @@ this.correctAnswers = this.answers.filter(function(correctAnswer){
 })
 this.score=this.pointsPerQuestion*this.correctAnswers.length;
 this.score=this.score.toString();
+
 for (let i = 0; i < this.selectedAnswers.length; i++){
   this.quizSummary.push({
     question: this.questions[i],

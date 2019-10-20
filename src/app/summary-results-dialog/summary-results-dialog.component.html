@@ -14,24 +14,17 @@
   </span>
 </h2>
 <br>
-<!-- <div style="width:80%; margin:0 auto;">
-  <div *ngFor="let summary of summary;">
-
-    <div *ngIf="summary.answer === true">
-      <p style="font-weight: bold;">Question: {{summary.question.question}}</p>
-      <p>Correct Answer: {{summary.question.choices[answer]}}</p>
-      <p style="color:green;">Selected Answer: {{summary.answerGiven}}</p>
+<div style="width:80%; margin:0 auto;">
+  <div *ngFor="let summaryAnswers of summary;">
+    <div>Question: {{summaryAnswers.question.question}}</div>
+    <div *ngIf="summaryAnswers.answer==='false'">
+      <p style="color:red">Question Selected: {{summaryAnswers.question.choices[summaryAnswers.answerSelected].answerText}}</p>
     </div>
-
-    <div *ngIf="summary.answer ===false">
-      <p style="font-weight: bold;">Question: {{summary.question.question}}</p>
-      <p>Correct Answer: {{summary.answer}}</p>
-      <p style="color:red;">Selected Answer: {{summary.answerGiven}}</p>
+        <div *ngIf="summaryAnswers.answer==='true'">
+        <p style="color:green">Question Selected: {{summaryAnswers.question.choices[summaryAnswers.answerSelected].answerText}}</p>
+      </div>
     </div>
-    <hr>
-    <br>
-  </div>
+</div>
 
-</div> -->
 
 <button mat-button (click)="goToDash()">Finished</button>

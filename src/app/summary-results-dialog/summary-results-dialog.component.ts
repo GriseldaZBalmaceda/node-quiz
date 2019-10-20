@@ -12,11 +12,12 @@ import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog'
 })
 export class SummaryResultsDialogComponent implements OnInit {
 summary:any;
+questions:any;
 sore:any;
   constructor(private route:ActivatedRoute,private router:Router, public dialogRef: MatDialogRef<QuizComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
 this.summary=data;
-console.log(this.summary)
+
 
      }
 

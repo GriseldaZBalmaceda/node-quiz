@@ -382,7 +382,7 @@ module.exports = "<router-outlet></router-outlet>>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div class=\"main-body\" fxLayout=\"row\">\r\n  <div class=\"sideNav\" fxFlex=\"20%\">\r\n    <mat-sidenav-container style=\"height: 100vh\">\r\n      <mat-sidenav mode=\"side\" opened>\r\n        <mat-toolbar>\r\n        </mat-toolbar>\r\n        <mat-nav-list>\r\n          <a mat-list-item (click)=\"goToDash()\" > Current Quizzes </a>\r\n          <a mat-list-item routerLink=\"past-quizes\"> Past Quizzes </a>\r\n          <a mat-list-item > Add Quizzes </a>\r\n       </mat-nav-list>\r\n       <a mat-list-item style=\"position: absolute;bottom:0;margin-left:30%;margin-bottom: 10px;\"> Log Out </a>\r\n      </mat-sidenav>\r\n    </mat-sidenav-container>\r\n  </div>\r\n  <div class=\"mainContent\" fxFlex=\"70%\">\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</div>\r\n\r\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div class=\"main-body\" fxLayout=\"row\">\r\n  <div class=\"sideNav\" fxFlex=\"20%\">\r\n    <mat-sidenav-container style=\"height: 100vh\">\r\n      <mat-sidenav mode=\"side\" opened>\r\n        <mat-nav-list>\r\n          <a mat-list-item (click)=\"goToDash()\" > Current Quizzes </a>\r\n          <a mat-list-item routerLink=\"past-quizes\"> Past Quizzes </a>\r\n          <a mat-list-item > Add Quizzes </a>\r\n       </mat-nav-list>\r\n       <a mat-list-item style=\"position: absolute;bottom:0;margin-left:30%;margin-bottom: 10px;\"> Log Out </a>\r\n      </mat-sidenav>\r\n    </mat-sidenav-container>\r\n  </div>\r\n  <div class=\"mainContent\" fxFlex=\"70%\">\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -393,7 +393,7 @@ module.exports = "<!--The content below is only a placeholder and can be replace
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 style=\"text-align:center\">Your Quiz Results</h1>\n<h2 sytle=\"margin:10px;\">Score:\n  <span *ngIf=\"summary.score === '100'\">\n    <span style=\"color: gold;\">{{summary.score}}%</span>\n  </span>\n  <span *ngIf=\"summary.score < '100' && summary.score >= '80'\">\n    <span style=\"color: green;\">{{summary.score}}%</span>\n  </span>\n  <span *ngIf=\"summary.score < '80' && summary.score >= '61'\">\n    <span style=\"color: yellowgreen;\">{{summary.score}}%</span>\n  </span>\n  <span *ngIf=\"summary.score < '61'\">\n    <span style=\"color: red;\">{{summary.score}}%</span>\n  </span>\n</h2>\n<br>\n<div style=\"width:80%; margin:0 auto;\">\n  <div *ngFor=\"let summary of summary;\">\n\n    <div *ngIf=\"summary.answer === true\">\n      <p style=\"font-weight: bold;\">Question: {{summary.question.question}}</p>\n      <p>Correct Answer: {{summary.question.choices[answer]}}</p>\n      <p style=\"color:green;\">Selected Answer: {{summary.answerGiven}}</p>\n    </div>\n\n    <div *ngIf=\"summary.answer ===false\">\n      <p style=\"font-weight: bold;\">Question: {{summary.question.question}}</p>\n      <p>Correct Answer: {{summary.answer}}</p>\n      <p style=\"color:red;\">Selected Answer: {{summary.answerGiven}}</p>\n    </div>\n    <hr>\n    <br>\n  </div>\n\n</div>\n\n<button mat-button (click)=\"goToDash()\">Finished</button>\n"
+module.exports = "<h1 style=\"text-align:center\">Your Quiz Results</h1>\n<h2 sytle=\"margin:10px;\">Score:\n  <span *ngIf=\"summary.score === '100'\">\n    <span style=\"color: gold;\">{{summary.score}}%</span>\n  </span>\n  <span *ngIf=\"summary.score < '100' && summary.score >= '80'\">\n    <span style=\"color: green;\">{{summary.score}}%</span>\n  </span>\n  <span *ngIf=\"summary.score < '80' && summary.score >= '61'\">\n    <span style=\"color: yellowgreen;\">{{summary.score}}%</span>\n  </span>\n  <span *ngIf=\"summary.score < '61'\">\n    <span style=\"color: red;\">{{summary.score}}%</span>\n  </span>\n</h2>\n<br>\n<div style=\"width:80%; margin:0 auto;\">\n  <div *ngFor=\"let summaryAnswers of summary;\">\n    <div>Question: {{summaryAnswers.question.question}}</div>\n    <div *ngIf=\"summaryAnswers.answer==='false'\">\n      <p style=\"color:red\">Question Selected: {{summaryAnswers.question.choices[summaryAnswers.answerSelected].answerText}}</p>\n    </div>\n        <div *ngIf=\"summaryAnswers.answer==='true'\">\n        <p style=\"color:green\">Question Selected: {{summaryAnswers.question.choices[summaryAnswers.answerSelected].answerText}}</p>\n      </div>\n    </div>\n</div>\n\n\n<button mat-button (click)=\"goToDash()\">Finished</button>\n"
 
 /***/ }),
 
@@ -1036,6 +1036,7 @@ var QuizComponent = /** @class */ (function () {
         this.quizSummary = [];
         this.questionNumber = 0;
         this.selectedAnswers = [];
+        this.selectedTextAnswers = [];
         this.answers = [];
         this.correctAnswers = [];
         this.qs = [];
@@ -1048,6 +1049,7 @@ var QuizComponent = /** @class */ (function () {
         this.http.get('/api/quiz/' + this.quizId).subscribe(function (res) {
             if (res) {
                 _this.quiz = res;
+                console.log(res);
                 _this.questions = _this.quiz.questions;
                 _this.quizName = _this.quiz.quizName;
                 _this.pointsPerQuestion = 100 / _this.questions.length;
@@ -1243,7 +1245,7 @@ var AuthGuard = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "mat-sidenav {\r\n  background-color:#043271;\r\n  color: white;\r\n\r\n}\r\nmat-nav-list-item{\r\n  text-align: center;\r\n  font-size: 2.2em;\r\n  font-family: 'Oswald', sans-serif;\r\n}\r\nmat-nav-list a{\r\n\r\ncolor:white\r\n}\r\nmat-sidenav li{\r\n  list-style-type: none;\r\n\r\n-webkit-padding-start: none!important;\r\n\r\n        padding-inline-start: none!important;\r\n}\r\nmat-toolbar{\r\n  height: 200px;\r\n  background-color: #106D9D;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2Jhc2UtbGF5b3V0L2Jhc2UtbGF5b3V0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSx3QkFBd0I7RUFDeEIsWUFBWTs7QUFFZDtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixpQ0FBaUM7QUFDbkM7QUFDQTs7QUFFQTtBQUNBO0FBQ0E7RUFDRSxxQkFBcUI7O0FBRXZCLHFDQUFvQzs7UUFBcEMsb0NBQW9DO0FBQ3BDO0FBQ0E7RUFDRSxhQUFhO0VBQ2IseUJBQXlCO0FBQzNCIiwiZmlsZSI6InNyYy9hcHAvc2hhcmVkL2Jhc2UtbGF5b3V0L2Jhc2UtbGF5b3V0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJtYXQtc2lkZW5hdiB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjojMDQzMjcxO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuXHJcbn1cclxubWF0LW5hdi1saXN0LWl0ZW17XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGZvbnQtc2l6ZTogMi4yZW07XHJcbiAgZm9udC1mYW1pbHk6ICdPc3dhbGQnLCBzYW5zLXNlcmlmO1xyXG59XHJcbm1hdC1uYXYtbGlzdCBhe1xyXG5cclxuY29sb3I6d2hpdGVcclxufVxyXG5tYXQtc2lkZW5hdiBsaXtcclxuICBsaXN0LXN0eWxlLXR5cGU6IG5vbmU7XHJcblxyXG5wYWRkaW5nLWlubGluZS1zdGFydDogbm9uZSFpbXBvcnRhbnQ7XHJcbn1cclxubWF0LXRvb2xiYXJ7XHJcbiAgaGVpZ2h0OiAyMDBweDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMTA2RDlEO1xyXG59XHJcbiJdfQ== */"
+module.exports = "mat-sidenav {\r\n  background-color:#043271;\r\n  color: white;\r\n  background-color: #043271;\r\n\r\n}\r\nmat-nav-list-item{\r\n  text-align: center;\r\n  font-size: 2.2em;\r\n  font-family: 'Oswald', sans-serif;\r\n}\r\nmat-nav-list a{\r\n\r\ncolor:white\r\n}\r\nmat-sidenav li{\r\nlist-style-type: none;\r\n-webkit-padding-start: none!important;\r\n        padding-inline-start: none!important;\r\n}\r\n.mat-drawer-container {\r\n  position: fixed;\r\n  width: 300px;\r\n  background-color: #043271;\r\n}\r\n\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2Jhc2UtbGF5b3V0L2Jhc2UtbGF5b3V0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSx3QkFBd0I7RUFDeEIsWUFBWTtFQUNaLHlCQUF5Qjs7QUFFM0I7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsaUNBQWlDO0FBQ25DO0FBQ0E7O0FBRUE7QUFDQTtBQUNBO0FBQ0EscUJBQXFCO0FBQ3JCLHFDQUFvQztRQUFwQyxvQ0FBb0M7QUFDcEM7QUFHQTtFQUNFLGVBQWU7RUFDZixZQUFZO0VBQ1oseUJBQXlCO0FBQzNCIiwiZmlsZSI6InNyYy9hcHAvc2hhcmVkL2Jhc2UtbGF5b3V0L2Jhc2UtbGF5b3V0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJtYXQtc2lkZW5hdiB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjojMDQzMjcxO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDQzMjcxO1xyXG5cclxufVxyXG5tYXQtbmF2LWxpc3QtaXRlbXtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgZm9udC1zaXplOiAyLjJlbTtcclxuICBmb250LWZhbWlseTogJ09zd2FsZCcsIHNhbnMtc2VyaWY7XHJcbn1cclxubWF0LW5hdi1saXN0IGF7XHJcblxyXG5jb2xvcjp3aGl0ZVxyXG59XHJcbm1hdC1zaWRlbmF2IGxpe1xyXG5saXN0LXN0eWxlLXR5cGU6IG5vbmU7XHJcbnBhZGRpbmctaW5saW5lLXN0YXJ0OiBub25lIWltcG9ydGFudDtcclxufVxyXG5cclxuXHJcbi5tYXQtZHJhd2VyLWNvbnRhaW5lciB7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIHdpZHRoOiAzMDBweDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDQzMjcxO1xyXG59XHJcblxyXG5cclxuIl19 */"
 
 /***/ }),
 
@@ -1346,7 +1348,6 @@ var SummaryResultsDialogComponent = /** @class */ (function () {
         this.dialogRef = dialogRef;
         this.data = data;
         this.summary = data;
-        console.log(this.summary);
     }
     SummaryResultsDialogComponent.prototype.ngOnInit = function () {
     };

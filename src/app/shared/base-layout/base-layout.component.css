@@ -1,6 +1,7 @@
 mat-sidenav {
   background-color:#043271;
   color: white;
+  width: 300px;
 
 }
 mat-nav-list-item{
@@ -13,11 +14,15 @@ mat-nav-list a{
 color:white
 }
 mat-sidenav li{
-  list-style-type: none;
-
+list-style-type: none;
 padding-inline-start: none!important;
 }
-mat-toolbar{
-  height: 200px;
-  background-color: #106D9D;
+
+
+.mat-drawer-container {
+  position: fixed;
+  width: 300px;
+  background-color: #043271;
 }
+
+
