@@ -9,7 +9,7 @@ export class ImagesService {
   constructor(private http: HttpClient) { }
 
   getPresentations() {
-    return this.http.get('../../assets/presentation.json');
+    return this.http.get('./assets/presentation.json');
   }
 
 }
